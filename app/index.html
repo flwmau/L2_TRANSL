@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Методы построения трансляторов Мугинов Эдуард ПРО-306 10 вариант</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js"></script>
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</head>
+
+<body ng-controller="mainController">
+
+<div class="left_table">
+  <p>{{hashTableTitle}}</p>
+  <table class="hash_table">
+    <tr>
+      <td>{{htText}}</td><td>{{addressText}}</td>
+    </tr>
+
+    <tr ng-repeat="hash in hash_table">
+      <td>{{hash.value}}</td> <td>{{hash.address}}</td>
+    </tr>
+  </table>
+</div>
+
+<div class="input_element">
+  <p>{{inputSet}} {{hash_value}} {{hf()}}</p>
+  <form ng-submit="addId()">
+    <input type="text" ng-model="idText"  size="17" placeholder="Введите идентификатор">
+    <input style="height:22px; width:105px" class="btn-primary" type="submit" value="Добавить">
+  </form>
+  <br>
+  <form ng-submit="searchId()">
+    <input type="text" ng-model="findId" size="17" placeholder="Введите идентификатор">
+    <input style="height:22px; width:105px" class="btn-primary" type="submit" value="Найти">
+  </form>
+  <br>
+  <form ng-submit="autoGenerate()">
+    <input type="text" ng-model="idSize" size="17" placeholder="Количество">
+    <input style="height:22px; width:105px" class="btn-primary" type="submit" value="Автогенерация">
+  </form>
+  <br>
+  {{findCount}}
+  <hr>
+  <p>Цепочка для проверки:</p>
+  <form ng-submit="analysis()">
+    <input type="text" ng-model="searchString" size="17" placeholder="Введите цепочку">
+    <input style="height:22px; width:105px" class="btn-primary" type="submit" value="Проверить">
+  </form>
+  <form ng-submit="clearLexTable()">
+    <input style="height:22px; width:105px" class="btn-primary" type="submit" value="Очистить">
+  </form>
+  {{errorString}}
+  <br>
+  <table class="lexema_table">
+    <tr>
+      <td>Лексема</td><td>Тип лексемы</td><td>Значение</td>
+    </tr>
+    <tr ng-repeat="lex in lexema_table">
+      <td>{{lex.lexema}}</td> <td>{{lex.type}}</td><td>{{lex.value}}</td>
+    </tr>
+  </table>
+  <div class="mouse"></div>
+  <!--Тестовый функционал, убрать перед показом-->
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <form ng-submit="saveToCookie()">
+    <input class="btn-primary" type="submit" value="Сохранить">
+  </form>
+</div>
+<div class="right_table">
+  <p>{{idTableTitle}}</p>
+  <table class="hash_table">
+    <tr>
+      <td>{{addressText}}</td> <td>{{valueText}}</td> <td>{{leftLink}}</td> <td> {{rightLink}}</td>
+    </tr>
+    <tr ng-repeat="id in id_table">
+      <td>{{id.address}}</td> <td>{{id.id}}</td> <td>{{id.leftLink}}</td> <td> {{id.rightLink}}</td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+</body>
+</html>
